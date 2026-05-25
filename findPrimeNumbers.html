@@ -1,0 +1,19 @@
+<script>
+    let primeNums = [];
+    function findPrimeNumbersList(limit) {
+        for (let i = 2; i <= limit; i++) {
+            let isPrime = true
+            for (let j = 2; j <= i / 2; j++) {
+                if (i % j === 0) {
+                    isPrime = false
+                }
+            }
+            if (isPrime) {
+                primeNums.push(i);
+            }
+        }
+        return primeNums;
+    }
+    const result = findPrimeNumbersList(50);
+    console.log(result)
+</script>

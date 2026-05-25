@@ -1,0 +1,8 @@
+<script>
+    let str = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';
+    let res = '';
+    for (let i = 0; i < 7; i++) {
+        res += str.charAt(Math.floor(Math.random() * str.length));
+    }
+    console.log(res, 'res');
+</script>

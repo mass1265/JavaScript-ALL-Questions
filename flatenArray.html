@@ -1,0 +1,16 @@
+<script>
+    let dataArr = [1, 2, [[3]], [[4, [5, [[6]]]], [7, [8], [9, 10, 11], 12], [13, 14, 15]]];
+    let res = [];
+    function flattenArray(dataArr) {
+        for (let i = 0; i < dataArr.length; i++) {
+            if (Array.isArray(dataArr[i])) {
+                flattenArray(dataArr[i])
+            } else {
+                res.push(dataArr[i]);
+            }
+        }
+        return res;
+    }
+   const data =  flattenArray(dataArr);
+   console.log(data)
+</script>

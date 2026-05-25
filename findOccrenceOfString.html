@@ -1,0 +1,8 @@
+<script>
+    let str = 'Srinivas';
+    let res = {}
+    for (const x of str.toLowerCase().split('')) {
+            res[x]  = (res[x] || 0) + 1;
+    }
+    console.log(res)
+</script>

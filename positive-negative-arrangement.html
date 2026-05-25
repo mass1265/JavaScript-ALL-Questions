@@ -1,0 +1,25 @@
+<script>
+    let data = [1, -2, -4, -3, 5, 6];
+    let posIndex = 0;
+    let negIndex = 1;
+    let res = [];
+
+    for (let i = 0; i < data.length; i++) {
+        if (data[i] < 0) {
+            res[negIndex] = data[i];
+            negIndex += 2;
+        } else {
+            res[posIndex] = data[i];
+            posIndex += 2;
+        }
+    }
+    console.log(res)
+</script>
+
+1) https://github.com/priya42bagde/JavaScriptCodingInterviewQuestions/blob/master/100Questions/100_JS_Que
+
+2) https://github.com/priya42bagde
+
+3) https://github.com/priya42bagde/JavaScriptCodingInterviewQuestions
+
+4) https://github.com/priya42bagde/javascriptDocuments
