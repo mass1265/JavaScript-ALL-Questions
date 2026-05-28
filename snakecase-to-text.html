@@ -1,0 +1,12 @@
+<script>
+    let str = "thisIsATest";
+    let res = '';
+    for (let i = 0; i < str.length; i++) {
+        if (str[i].toUpperCase() === str[i]) {
+            res += "_"
+        }
+        res += str[i];
+    }
+    let fRes = res[0].toUpperCase() + res.slice(1).split("_").join(" ");
+    console.log(fRes);
+</script>

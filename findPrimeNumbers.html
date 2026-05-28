@@ -17,3 +17,16 @@
     const result = findPrimeNumbersList(50);
     console.log(result)
 </script>
+
+<script>
+    function findPrimeNum(num) {
+        for (let i = 2; i <= Math.sqrt(num); i++) {
+            if (num % i === 0) {
+                return false;
+            }
+            return true;
+        }
+    }
+    console.log(findPrimeNum(17)) 
+    console.log(findPrimeNum(14)) 
+</script>

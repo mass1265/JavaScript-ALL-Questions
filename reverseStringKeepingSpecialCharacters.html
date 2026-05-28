@@ -1,0 +1,15 @@
+<script>
+    let str = "sr!in#iva@s m@er#ug$u";
+    let res = '';
+    let onlyLetters = str.replace(/[^a-zA-z0-9  ]/g, '').split('');
+
+    for (let i = 0; i < str.length; i++) {
+        if (/[a-zA-z0-9 ]/.test(str[i])) {
+            res += onlyLetters.pop();
+        } else {
+            res += str[i];
+        }
+    }
+    console.log(res);
+
+</script>

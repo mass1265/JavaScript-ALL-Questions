@@ -1,0 +1,19 @@
+<script>
+    let str = 'i am from angular developer';
+    let res = '';
+
+    let temp = str.split(' ');
+
+    for (let i = 0; i < temp.length; i++) {
+
+        let rev = '';
+
+        for (let j = temp[i].length - 1; j >= 0; j--) {
+            rev += temp[i][j];
+        }
+
+        res += rev.charAt(0).toUpperCase() + rev.slice(1) + ' ';
+    }
+
+    console.log(res);
+</script>

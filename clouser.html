@@ -1,0 +1,14 @@
+<script>
+   function Outer() {
+     let counter = 0;
+     return function() {
+        return ++counter;
+     }
+   }
+   const res = Outer();
+   console.log(res())
+   console.log(res())
+   console.log(res())
+   console.log(res())
+   console.log(res())
+</script>

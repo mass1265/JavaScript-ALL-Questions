@@ -1,0 +1,22 @@
+<script>
+    let aob =
+        [
+            { framework: 'React.JS', website: 'Paypal' },
+            { framework: 'React.JS', website: 'Tesla' },
+            { framework: 'Angular', website: 'Google' },
+            { framework: 'Vue.JS', website: 'Vue' },
+            { framework: 'JavaScript', website: 'inblack67' },
+        ];
+    let res = [];
+    let Obj = {}
+    for (let i = 0; i < aob.length; i++) {
+        const framework = aob[i].framework;
+        if (!Obj[framework]) {
+            Obj[framework] = { Victim: aob[i].framework, count: 1 }
+            res.push(Obj[framework])
+        } else {
+            Obj[aob[i].framework].count++;
+        }
+    }
+    console.log(res)
+</script>

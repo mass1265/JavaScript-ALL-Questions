@@ -1,0 +1,20 @@
+<input type="text" name="userName" id="userName">
+
+<script>
+    function debounceTime(fn, d) {
+        let timer = 0;
+        return function (...args) {
+            clearTimeout(timer);
+            timer = setTimeout(() => {
+                fn.apply(this.args);
+            }, d);
+        }
+    }
+
+    function getData() {
+        const value = document.getElementById('userName').value;
+        console.log(value)
+    }
+    const debounceTimeLogs = debounceTime(getData, 500);
+    document.getElementById('userName').addEventListener('keyup', debounceTimeLogs);
+</script>

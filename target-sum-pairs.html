@@ -1,0 +1,16 @@
+<script>
+    let data = [1, 3, 2, 2, 4, 5, -1, 5, -1, 3, 1, 1, 3, 0, 4, 0, 5, 2, 5, -1]
+    let k = 4;
+    let res = [];
+    let setValue = new Set();
+    for (let i = 0; i < data.length; i++) {
+        for (let j = i + 1; j < data.length; j++) {
+            if (data[i] + data[j] === k && !setValue.has(data[i]) && !setValue.has(data[j])) {
+                setValue.add(data[i])
+                setValue.add(data[j])
+                res.push([data[i], data[j]])
+            }
+        }
+    }
+    console.log(res)
+</script>

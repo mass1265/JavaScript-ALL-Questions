@@ -1,0 +1,11 @@
+<script>
+    let name = "I am from Angular and I am learning JavaScript";
+    let longesStr = '';
+    let res = name.split(" ");
+    for (let i = 0; i < res.length; i++) {
+        if (res[i].length > longesStr.length) {
+            longesStr = res[i];
+        }
+    }
+    console.log(longesStr)
+</script>

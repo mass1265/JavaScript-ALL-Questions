@@ -1,0 +1,54 @@
+<script>
+    let employees = [
+        { id: 1, name: 'John', department: 'IT', salary: 50000, age: 28, active: true },
+        { id: 1, name: 'John', department: 'IT', salary: 50000, age: 28, active: true },
+        { id: 2, name: 'Jane', department: 'HR', salary: 45000, age: 32, active: true },
+        { id: 2, name: 'Jane', department: 'HR', salary: 45000, age: 32, active: true },
+        { id: 3, name: 'Bob', department: 'IT', salary: 60000, age: 35, active: false },
+        { id: 3, name: 'Bob', department: 'IT', salary: 60000, age: 35, active: false },
+        { id: 4, name: 'Alice', department: 'Finance', salary: 55000, age: 29, active: true },
+        { id: 4, name: 'Alice', department: 'Finance', salary: 55000, age: 29, active: true },
+        { id: 4, name: 'Alice', department: 'Finance', salary: 55000, age: 29, active: true },
+        { id: 4, name: 'Alice', department: 'Finance', salary: 55000, age: 29, active: true },
+        { id: 5, name: 'Charlie', department: 'IT', salary: 48000, age: 26, active: true },
+        { id: 5, name: 'Charlie', department: 'IT', salary: 48000, age: 26, active: true },
+        { id: 5, name: 'Charlie', department: 'IT', salary: 48000, age: 26, active: true },
+        { id: 5, name: 'Charlie', department: 'IT', salary: 48000, age: 26, active: true }
+    ];
+
+    employees = employees.filter((item, index, self) => {
+        return index === self.findIndex(x => x.id === item.id);
+    });
+    console.log(employees)
+
+    // let res = [];
+    // let setValue = new Set();
+    // for (let i = 0; i < employees.length; i++) {
+    //     if (!setValue.has(employees[i].id)) {
+    //         setValue.add(employees[i].id);
+    //         res.push(employees[i])
+    //     }
+    // }
+    // console.log(res);
+    groupByObj = {};
+    employees.forEach((x) => {
+        const { active, ...rest } = x;
+        if (!groupByObj[x.department]) {
+            groupByObj[x.department] = [];
+        }
+        groupByObj[x.department].push(rest);
+    });
+    console.log(groupByObj)
+
+    let findMaxSalary = -Infinity;
+    let minSalary = Infinity;
+    for (let i = 0; i < employees.length; i++) {
+        if (employees[i].salary > findMaxSalary) {
+            findMaxSalary = employees[i].salary;
+        } else if (employees[i].salary < minSalary) {
+            minSalary = employees[i].salary;
+        }
+    }
+    console.log(findMaxSalary, minSalary);
+
+</script>   

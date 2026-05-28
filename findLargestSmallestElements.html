@@ -1,0 +1,33 @@
+<script>
+    let arr = [9, 4, 1, 7, 3, 9, 10, 15, 9, 8];
+    let first = -Infinity;
+    let second = -Infinity;
+    let third = -Infinity;
+    let fourth = -Infinity;
+    for (let i = 0; i < arr.length; i++) {
+        let num = arr[i];
+        // Skip duplicates
+        if (num === first || num === second || num === third || num === fourth) {
+            continue;
+        }
+        if (num > first) {
+            fourth = third;
+            third = second;
+            second = first;
+            first = num;
+        } else if (num > second) {
+            fourth = third;
+            third = second;
+            second = num;
+        } else if (num > third) {
+            fourth = third;
+            third = num;
+        } else if (num > fourth) {
+            fourth = num;
+        }
+    }
+    console.log(first, second, third, fourth)
+
+</script>
+
+ 

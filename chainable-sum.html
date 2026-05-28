@@ -1,0 +1,12 @@
+<script>
+    function sum(totalValue = 0) {
+        return {
+            sum(value = 0) {
+                return sum(totalValue + value);
+            },
+            value: totalValue
+        }
+    }
+    console.log(sum(10).sum(20).sum(30).value); // 60
+    console.log(sum(5).sum(15).sum(25).sum(55).value); // 100
+</script>

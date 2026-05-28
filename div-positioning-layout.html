@@ -1,0 +1,19 @@
+<div class="main_div">
+    <div id="div1">
+        I am from Div 1
+    </div>
+
+    <div id="div2">
+        I am from Div 2
+    </div>
+</div>
+
+<script>
+    let num = 15
+    let num2 = 78
+    document.getElementById('div2').style.fontSize = num2 + 'px';
+    document.getElementById('div1').addEventListener('click', () => {
+        document.getElementById('div1').style.fontSize = ++num + 'px';
+        document.getElementById('div2').style.fontSize = --num2 + 'px';
+    });
+</script>

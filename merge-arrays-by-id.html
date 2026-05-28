@@ -1,0 +1,27 @@
+<script>
+    let a = [
+        { id: 1, name: "test" },
+        { id: 2, name: "test1" },
+        { id: 3, name: "test2" },
+        { id: 4, name: "test3" },
+        { id: 5, name: "test4" }
+    ]
+
+    let b = [
+        { id: 2, age: 23 },
+        { id: 3, age: 40 },
+        { id: 4, age: 60 },
+        { id: 5, age: 70 }
+    ]
+
+    for (let i = 0; i < a.length; i++) {
+        for (let j = 0; j < b.length; j++) {
+            if (a[i + 1]?.id === b[j].id) {
+                a[i + 1]['age'] = b[j].age;
+            }
+        }
+    }
+    console.log(a)
+
+
+</script>

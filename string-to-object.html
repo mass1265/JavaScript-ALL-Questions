@@ -1,0 +1,11 @@
+<script>
+    let queryString = "name='srinivas',age='25',city='gdk',mobile='123456789'";
+    let res = queryString.split(",")
+    let Obj = {}
+    for (let i = 0; i < res.length; i++) {
+        let [key, value] = res[i].split('=');
+        value = value.replace(/'/g, '');
+        Obj[key] = isNaN(value) ? value : +value
+    }
+    console.log(Obj)
+</script>
