@@ -1,0 +1,60 @@
+<script>
+    // const employees = [
+    //     { id: 1, name: 'John', department: 'IT', salary: 50000, age: 28, active: true },
+    //     { id: 1, name: 'John', department: 'IT', salary: 50000, age: 28, active: true },
+    //     { id: 2, name: 'Jane', department: 'HR', salary: 45000, age: 32, active: true },
+    //     { id: 2, name: 'Jane', department: 'HR', salary: 45000, age: 32, active: true },
+    //     { id: 3, name: 'Bob', department: 'IT', salary: 60000, age: 35, active: false },
+    //     { id: 3, name: 'Bob', department: 'IT', salary: 60000, age: 35, active: false },
+    //     { id: 4, name: 'Alice', department: 'Finance', salary: 55000, age: 29, active: true },
+    //     { id: 5, name: 'Charlie', department: 'IT', salary: 48000, age: 26, active: true }
+    // ];
+
+    // let res = [];
+    // let setValue = new Set();
+    // for (let i = 0; i < employees.length; i++) {
+    //     if (!setValue.has(employees[i].id)) {
+    //         res.push(employees[i]);
+    //         setValue.add(employees[i].id)
+    //     }
+    // }
+
+    // let fResp = {}
+    // res.forEach(item => {
+    //     if(fResp[item.department]) {
+    //         fResp[item.department].push(item)
+    //     } else {
+    //         fResp[item.department] = [item];
+    //     }
+    // });
+
+    // console.log(fResp)
+
+
+
+    // employees = employees.filter((item, index, self) => {
+    //     return index === self.findIndex(x=> x.id === item.id);
+    // });
+    // console.log(employees)
+</script>
+
+
+<script>
+    const dataArr = [1, "2", 3, true, { test: "key", name: "srinivas" }, [4, [5, 6]], 7, 8];
+    let res = [];
+    function recursiveFn(dataArr) {
+        for (let i = 0; i < dataArr.length; i++) {
+            if (Array.isArray(dataArr[i])) {
+                recursiveFn(dataArr[i]);
+            } else if (Object.keys(dataArr[i]).length && typeof dataArr[i] === 'object') {
+                res.push(...Object.values(dataArr[i]));
+            } else if (typeof dataArr[i] === 'string' || typeof dataArr[i] === 'number') {
+                res.push(+dataArr[i]);
+            }
+        }
+    }
+    recursiveFn(dataArr);
+    console.log(res)
+
+
+</script>

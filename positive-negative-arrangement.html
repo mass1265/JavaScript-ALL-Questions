@@ -1,19 +1,40 @@
 <script>
-    let data = [1, -2, -4, -3, 5, 6];
-    let posIndex = 0;
-    let negIndex = 1;
-    let res = [];
+    // let data = [1, -2, -4, -3, 5, 6];
+    // let posIndex = 0;
+    // let negIndex = 1;
+    // let res = [];
 
-    for (let i = 0; i < data.length; i++) {
-        if (data[i] < 0) {
-            res[negIndex] = data[i];
-            negIndex += 2;
+    // for (let i = 0; i < data.length; i++) {
+    //     if (data[i] < 0) {
+    //         res[negIndex] = data[i];
+    //         negIndex += 2;
+    //     } else {
+    //         res[posIndex] = data[i];
+    //         posIndex += 2;
+    //     }
+    // }
+    // console.log(res)
+
+
+
+
+    // const Obj = {
+    //     a: 1,
+    //     b: 2,
+    //     sum: function () {
+    //         return this.a + this.b;
+    //     }
+    // }
+    // console.log(Obj.sum());
+
+    function findMax(dataArr) {
+        if (dataArr.length === 1) {
+            return maxValue =  dataArr[0]
         } else {
-            res[posIndex] = data[i];
-            posIndex += 2;
+            // same logic
         }
     }
-    console.log(res)
+    findMax([2])
 </script>
 
 1) https://github.com/priya42bagde/JavaScriptCodingInterviewQuestions/blob/master/100Questions/100_JS_Que

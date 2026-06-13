@@ -1,0 +1,20 @@
+<script>
+    let findObj = {}
+    let res = '';
+    function findFirstNonRepeating(arr) {
+        for (const item of arr) {
+            findObj[item] = (findObj[item] || 0) + 1;
+        }
+        for (const item of arr) {
+            if (findObj[item] === 1) {
+                res = item;
+                break;
+            }
+        }
+        return res;
+    }
+
+
+    const input = [9, 4, 9, 6, 7, 4, 3, 8];
+    console.log(findFirstNonRepeating(input)); 
+</script>
