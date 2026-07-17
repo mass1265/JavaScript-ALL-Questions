@@ -53,4 +53,20 @@
     }
     console.log(findMaxSalary, minSalary);
 
+
+    const arr = [
+        { id: 1, author: 'john' },
+        { id: 2, author: 'gardon' },
+        { id: 3, author: 'john' },
+        { id: 4, author: 'roy' },
+    ];
+
+    const modifiedArr = arr.filter((item, index, self) =>
+        index === self.findIndex((t) => t.author === item.author)
+    );
+    console.log(modifiedArr);
+
+
+    
+
 </script>

@@ -19,4 +19,38 @@
         }
     }
     console.log(res)
+
+
+
+    let obj = {};
+    let newarr = [];
+    for (let x of aob) {
+        let key = x.framework;
+        obj[key] = (obj[key] || 0) + 1;
+    }
+
+    for (let [key, val] of Object.entries(obj)) {
+        newarr.push({ victim: key, count: val })
+    }
+
+    console.log(newarr);
 </script>
+
+25 ) Can we use RXJS operators in Promise?
+
+Directly NO. But we can convert that Promise into an Observable using RxJS creation operators like from(). Once it becomes an Observable, we can easily chain any operator like map, filter, or switchMap inside the pipe() function.
+
+
+import { from, map } from 'rxjs';
+
+const dataPromise = fetch('https://lnkd.in/gf9xQCe8');
+
+from(dataPromise).pipe(
+  map(response => response.json()),
+  map((studentsList: any) => studentsList.map((student: any) => student.name)) 
+).subscribe({
+  next: (finalData) => {
+    console.log("Filtered Student Names:", finalData);
+  },
+  error: (err) => console.error("Something Wrong Here:", err)
+});

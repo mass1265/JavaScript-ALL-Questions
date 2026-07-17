@@ -1,0 +1,17 @@
+<script>
+    const dataArr = [1, "2", 3, true, { test: "key", name: "srinivas" }, [4, [5, 6]], 7, 8];
+    let res = [];
+    function recursiveFn(dataArr) {
+        for (let i = 0; i < dataArr.length; i++) {
+            if (Array.isArray(dataArr[i])) {
+                recursiveFn(dataArr[i]);
+            } else if (Object.keys(dataArr[i]).length && typeof dataArr[i] === 'object') {
+                res.push(...Object.values(dataArr[i]));
+            } else if (typeof dataArr[i] === 'string' || typeof dataArr[i] === 'number') {
+                res.push(+dataArr[i]);
+            }
+        }
+    }
+    recursiveFn(dataArr);
+    console.log(res)
+</script>

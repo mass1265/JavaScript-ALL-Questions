@@ -1,0 +1,227 @@
+1) console.log(this === window);
+
+2) function test() {
+  "use strict";
+  return this;
+}
+console.log(test());
+
+3) const user = {
+  name: "Srinivas",
+  getName() {
+    return this.name;
+  }
+};
+console.log(user.getName());
+
+const user = {
+  name: "Srinivas",
+  getName() {
+    return this.name;
+  }
+};
+const func = user.getName;
+console.log(func());
+
+
+const user = {
+  name: "Srinivas",
+  getName: () => {
+    return this.name;
+  }
+};
+console.log(user.getName());
+
+
+const user = {
+  name: "Srinivas",
+  outer() {
+    function inner() {
+      return this.name;
+    }
+    return inner();
+  }
+};
+console.log(user.outer());
+
+const user = {
+  name: "Srinivas",
+  outer() {
+    const inner = () => {
+      return this.name;
+    };
+    return inner();
+  }
+};
+console.log(user.outer());
+
+
+function greet() {
+  return "Hello, " + this.name;
+}
+const person = { name: "Rahul" };
+console.log(greet.call(person));
+
+
+function add(a, b) {
+  return this.num + a + b;
+}
+const obj = { num: 10 };
+console.log(add.apply(obj, [5, 5]));
+
+
+function sayHi() {
+  return this.name;
+}
+const obj = { name: "Kiran" };
+const boundFunc = sayHi.bind(obj);
+
+
+function Car(model) {
+  this.model = model;
+}
+const myCar = new Car("Tata");
+console.log(myCar.model);
+
+
+function Car(model) {
+  this.model = model;
+}
+const myCar = Car("Mahindra");
+console.log(myCar);
+
+
+class User {
+  constructor() { this.name = "Ravi"; }
+  getName() { return this.name; }
+}
+const u = new User();
+const func = u.getName;
+console.log(func());
+
+class User {
+  constructor() { this.name = "Ravi"; }
+  getName = () => { return this.name; }
+}
+const u = new User();
+const func = u.getName;
+console.log(func());
+
+const obj = {
+  msg: "Hello",
+  greet() {
+    setTimeout(function() {
+      console.log(this.msg);
+    }, 10);
+  }
+};
+obj.greet();
+
+
+const obj = {
+  msg: "Hello",
+  greet() {
+    setTimeout(() => {
+      console.log(this.msg);
+    }, 10);
+  }
+};
+obj.greet();
+
+
+button.addEventListener('click', function() {
+  console.log(this);
+});
+
+
+(function() {
+  console.log(this === window);
+})();
+
+
+const proto = { name: "Proto", getName() { return this.name; } };
+const obj = Object.create(proto);
+obj.name = "Child";
+console.log(obj.getName());
+
+
+const person = {
+  _age: 25,
+  get age() {
+    return this._age;
+  }
+};
+console.log(person.age);
+
+
+const obj = { multiplier: 2 };
+const res = [1, 2, 3].map(function(num) {
+  return num * this.multiplier;
+}, obj);
+console.log(res);
+
+function show() { return this.name; }
+const func = show.bind({name: "First"}).bind({name: "Second"});
+console.log(func());
+
+const show = () => this.name;
+const obj = { name: "Testing" };
+window.name = "Global";
+console.log(show.call(obj));
+
+const counter = {
+  step: 0,
+  up() {
+    this.step++;
+    return ____;
+  }
+};
+counter.up().up();
+
+
+const obj = {
+  name: "Obj",
+  show() { return this.name; }
+};
+const result = (0, obj.show)();
+console.log(result);
+
+
+const obj = {
+  id: 1,
+  inner: {
+    id: 2,
+    getId() { return this.id; }
+  }
+};
+console.log(obj.inner.getId());
+
+
+let this = 10;
+console.log(this);
+
+
+const obj = {
+  num: 50,
+  check() {
+    eval("console.log(this.num)");
+  }
+};
+obj.check();
+
+
+class Helper {
+  static log() {
+    console.log(this === Helper);
+  }
+}
+Helper.log();
+
+function Person() {
+  this.name = "AAA";
+  return { name: "BBB" };
+}
+const p = new Person();
+console.log(p.name);
+
+

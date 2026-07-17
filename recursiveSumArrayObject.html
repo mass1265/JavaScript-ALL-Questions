@@ -1,0 +1,18 @@
+<script>
+    let sum = 0;
+    function deepSum(Obj) {
+        if (typeof Obj === 'number') {
+            sum += Obj
+        } else if (Array.isArray(Obj)) {
+            Obj.forEach(deepSum);
+        } else if (typeof Obj === 'object' && Obj !== null) {
+            Object.values(Obj).forEach(deepSum);
+        }
+        return sum;
+    }
+    const fres = deepSum([1, "x", [2, null, [3, 4]], { a: 5 }]);
+    console.log(fres, 'fres');
+
+</script>
+
+    webhelp.njoyn@cgi.com
