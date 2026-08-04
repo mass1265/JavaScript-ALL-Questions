@@ -1,0 +1,18 @@
+<script>
+    let arr = [1, 4, 6, 5, 11, 13, 17]
+    let result = [];
+    let current = [arr[0]];
+
+    for (let i = 1; i < arr.length; i++) {
+        if (arr[i] > arr[i - 1]) {
+            current.push(arr[i]);
+        } else {
+            result.push(current);
+            current = [arr[i]];
+        }
+    }
+
+    result.push(current);
+
+    console.log(result);
+</script>
