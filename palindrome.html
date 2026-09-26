@@ -1,0 +1,15 @@
+<script>
+    function checkPolindrom(str) {
+        let res = [];
+        let tempArr = str.split(' ');
+        for (let i = 0; i < tempArr.length; i++) {
+            let word = tempArr[i].split('').reverse().join('');
+            if (word === tempArr[i]) {
+                res.push(word);
+            }
+        }
+        return res;
+    }
+    console.log(checkPolindrom("madam is a racecar and level"))
+    console.log(checkPolindrom("hello madam how are you level"))
+</script>

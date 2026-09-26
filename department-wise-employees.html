@@ -1,0 +1,34 @@
+<script>
+    const employees = [
+        { id: 1, name: "A", dept: "IT" },
+        { id: 2, name: "B", dept: "HR" },
+        { id: 3, name: "C", dept: "IT" },
+        { id: 4, name: "D", dept: "Finance" }
+    ];
+
+    let res = {};
+
+    for (const value of employees) {
+        if (!res[value.dept]) {
+            res[value.dept] = []
+        }
+        res[value.dept].push(value.name)
+    }
+    console.log(res)
+</script>
+
+expected <Output></Output>
+
+
+{
+    "IT": [
+        "A",
+        "C"
+    ],
+    "HR": [
+        "B"
+    ],
+    "Finance": [
+        "D"
+    ]
+}

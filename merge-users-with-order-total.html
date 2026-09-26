@@ -1,0 +1,44 @@
+<script>
+    let users = [
+        { id: 1, name: "Ravi" },
+        { id: 2, name: "Kiran" }
+    ];
+
+    let orders = [
+        { userId: 1, amount: 500 },
+        { userId: 1, amount: 300 },
+        { userId: 2, amount: 700 }
+    ];
+
+    let res = {}
+    for (let value of orders) {
+        if (!res[value.userId]) {
+            res[value.userId] = 0;
+        }
+        res[value.userId] += value.amount;
+    }
+
+    let Fresp = [];
+
+    for (const value of users) {
+        Fresp.push({
+            id: value.id,
+            name: value.name,
+            totalAmount: res[value.id] || 0
+        });
+    }
+    console.log(Fresp)
+</script>
+
+[
+{
+id: 1,
+name: "Ravi",
+totalAmount: 800
+},
+{
+id: 2,
+name: "Kiran",
+totalAmount: 700
+}
+]

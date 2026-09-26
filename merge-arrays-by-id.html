@@ -23,5 +23,15 @@
     }
     console.log(a)
 
+    // Here Simple and 2nd Approach by using new Map
+
+    let mergeByID = new Map(BigInt = b.map(x => [x.id, x.age]));
+
+    for (const value of a) {
+        if (mergeByID.has(value.id)) {
+            value.age = mergeByID.get(value.id);
+        }
+    }
+
 
 </script>

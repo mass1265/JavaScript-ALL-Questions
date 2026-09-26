@@ -1,0 +1,56 @@
+<script>
+    const users = [
+        { id: 1, name: "Ravi" },
+        { id: 2, name: "Kiran" },
+        { id: 1, name: "Ravi Updated" },
+        { id: 3, name: "Srinivas" },
+        { id: 2, name: "Kiran Updated" }
+    ];
+
+    const map = new Map();
+
+    for (const user of users) {
+        map.set(user.id, user);
+    }
+    console.log(map)
+
+    const result = [...map.values()];
+
+    console.log(result);
+
+    ////////////////////////// SECOND APPROACH /////////////////////
+
+   
+    let result1 = []
+
+    for (let i = 0; i < users.length; i++) {
+        let isFound = false;
+        for (let j = 0; j < result1.length; j++) {
+            if (users[i].id === result1[j].id) {
+                result1[j] = users[i];
+                isFound = true;
+                break;
+            }
+        }
+        if (!isFound) {
+            result1.push(users[i])
+        }
+    }
+    console.log(result1)
+
+</script>
+
+[
+    {
+        "id": 1,
+        "name": "Ravi Updated"
+    },
+    {
+        "id": 2,
+        "name": "Kiran Updated"
+    },
+    {
+        "id": 3,
+        "name": "Srinivas"
+    }
+]

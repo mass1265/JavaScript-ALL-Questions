@@ -1,0 +1,31 @@
+<script>
+    const users = [
+        { id: 1, name: "A" },
+        { id: 2, name: "B" },
+        { id: 1, name: "A Updated" }
+    ];
+    let res = {}
+    let fresp = {};
+    for (let i = 0; i < users.length; i++) {
+        if (!res[users[i].id]) {
+            res[users[i].id] = []
+        }
+        res[users[i].id].push(users[i]);
+    }
+
+    for (const key in res) {
+        if (res[key].length > 1) {
+            fresp[key] = res[key];
+        }
+    }
+    console.log(fresp)
+</script>
+
+expected output
+==================
+{
+  1: [
+    { id: 1, name: "A" },
+    { id: 1, name: "A Updated" }
+  ]
+}

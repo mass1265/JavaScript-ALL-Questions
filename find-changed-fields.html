@@ -1,0 +1,29 @@
+<script>
+    oldUser = { name: 'A', age: 30, city: 'Hyd' }
+    newUser = { name: 'A', age: 31, city: 'Pune' }
+
+    let res = {}
+
+    for (const key in oldUser) {
+        if (oldUser[key] !== newUser[key]) {
+            res[key] = {
+                old: oldUser[key],
+                new: newUser[key]
+            }
+        }
+    }
+    console.log(res)
+</script>
+
+expected <output></output>
+
+{
+    "age": {
+        "old": 30,
+        "new": 31
+    },
+    "city": {
+        "old": "Hyd",
+        "new": "Pune"
+    }
+}

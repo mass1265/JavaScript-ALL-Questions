@@ -65,8 +65,43 @@
         index === self.findIndex((t) => t.author === item.author)
     );
     console.log(modifiedArr);
-
-
-    
-
 </script>
+
+============================================================================================================
+1) Here Remove the duplicate Objects get the Unique Array Of Objects?
+
+    const users = [
+        { id: 1, name: "A", role: "admin" },
+        { id: 1, name: "A", role: "admin" },
+        { id: 2, name: "B", role: "user" },
+        { id: 3, name: "C", role: "admin" }
+    ];
+    let res = [];
+    let seen = new Set();
+    for (let i = 0; i < users.length; i++) {
+        if (!seen.has(users[i].id)) {
+            res.push(users[i]);
+            seen.add(users[i].id)
+        }
+    }
+    console.log(res)
+
+2) here Only get the Duplicate Objects here 
+
+
+    const users = [
+        { id: 1, name: "A", role: "admin" },
+        { id: 1, name: "A", role: "admin" },
+        { id: 2, name: "B", role: "user" },
+        { id: 3, name: "C", role: "admin" }
+    ];
+    let res = [];
+    let seen = {}
+    for (let i = 0; i < users.length; i++) {
+        if (seen[users[i].id]) {
+            res.push(users[i]);
+        }
+        seen[users[i].id] = true
+    }
+    console.log(res)
+

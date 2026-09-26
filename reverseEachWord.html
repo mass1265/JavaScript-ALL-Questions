@@ -12,8 +12,28 @@
             rev += temp[i][j];
         }
 
-        res += rev.charAt(0).toUpperCase() + rev.slice(1) + ' ';
+        res += rev;//.charAt(0).toUpperCase() + rev.slice(1) + ' ';
     }
 
     console.log(res);
 </script>
+
+<script>
+    let str1 = "Welcome*To*Java";
+    let temp1 = str.split('*');
+    let res1 = '';
+    for (let i = 0; i < temp.length; i++) {
+        let rev = '';
+        for (let j = temp[i].length - 1; j >= 0; j--) {
+            rev += temp[i][j];
+        }
+        res += rev;
+        if (i < temp.length - 1) {
+            res += '*';
+        }
+    }
+    console.log(res);
+
+</script>
+input ==> Welcome*To*Java
+Output ===> emocleW*oT*avaJ

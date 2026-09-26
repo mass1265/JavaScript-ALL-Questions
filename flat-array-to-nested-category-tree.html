@@ -1,0 +1,54 @@
+<script>
+    const categories = [
+        { id: 1, parentId: null, name: 'Products' },
+        { id: 2, parentId: 1, name: 'Phones' },
+        { id: 3, parentId: 1, name: 'Laptops' },
+        { id: 4, parentId: 2, name: 'Android' }
+    ];
+
+    const map = new Map();
+    const result = [];
+
+    categories.forEach(item => {
+        map.set(item.id, { ...item, children: [] });
+    });
+
+    categories.forEach(item => {
+        if (item.parentId === null) {
+            result.push(map.get(item.id));
+        } else {
+            map.get(item.parentId)?.children.push(map.get(item.id));
+        }
+    });
+    console.log(result)
+</script>
+expected output
+
+[
+  {
+    id: 1,
+    parentId: null,
+    name: 'Products',
+    children: [
+      {
+        id: 2,
+        parentId: 1,
+        name: 'Phones',
+        children: [
+          {
+            id: 4,
+            parentId: 2,
+            name: 'Android',
+            children: []
+          }
+        ]
+      },
+      {
+        id: 3,
+        parentId: 1,
+        name: 'Laptops',
+        children: []
+      }
+    ]
+  }
+]

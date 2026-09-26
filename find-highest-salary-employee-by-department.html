@@ -1,0 +1,27 @@
+<script>
+    const employees = [
+        { name: "A", dept: "IT", salary: 80000 },
+        { name: "B", dept: "IT", salary: 120000 },
+        { name: "C", dept: "HR", salary: 70000 },
+        { name: "D", dept: "HR", salary: 90000 }
+    ];
+
+    let res = {}
+
+    for (const value of employees) {
+        if (!res[value.dept] || value.salary > res[value.dept].salary) {
+            res[value.dept] = {
+                name: value.name,
+                salary: value.salary
+            }
+        }
+    }
+    console.log(res)
+</script>
+
+expected <Output></Output>
+
+{
+IT: { name: "B", salary: 120000 },
+HR: { name: "D", salary: 90000 }
+}

@@ -1,0 +1,21 @@
+<script>
+    function XOR(N, K, NArray) {
+        let count = 0;
+        let res = [];
+        for (let i = 0; i < N; i++) {
+            for (let j = i + 1; j < N; j++) {
+                if ((NArray[i] ^ NArray[j]) === K) {
+                    count++
+                    res.push([NArray[i], NArray[j]]
+                    )
+                }
+            }
+        }
+        return { countValue: count, dataArrValue: res };
+    }
+    let N = 5;
+    let K = 5;
+    let NArray = [1, 2, 4, 7, 4];
+    let result = XOR(N, K, NArray);
+    console.log(result)
+</script>

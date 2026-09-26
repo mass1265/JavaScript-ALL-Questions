@@ -1,0 +1,87 @@
+<script>
+    const users = [
+        {
+            id: 1,
+            name: "Srinivas",
+            country: "India",
+            department: "IT"
+        },
+        {
+            id: 2,
+            name: "Ravi",
+            country: "India",
+            department: "HR"
+        },
+        {
+            id: 3,
+            name: "John",
+            country: "USA",
+            department: "IT"
+        },
+        {
+            id: 4,
+            name: "Kiran",
+            country: "Dubai",
+            department: "IT"
+        }
+    ];
+
+    let result = {};
+
+    for (const value of users) {
+        const { country, department } = value;
+
+        if (!result[country]) {
+            result[country] = {}
+        }
+
+        if (!result[country][department]) {
+            result[country][department] = [];
+        }
+        result[country][department].push(value)
+    }
+    console.log(result)
+</script>
+
+
+Expected output 
+{
+    "India": {
+        "IT": [
+            {
+                "id": 1,
+                "name": "Srinivas",
+                "country": "India",
+                "department": "IT"
+            }
+        ],
+        "HR": [
+            {
+                "id": 2,
+                "name": "Ravi",
+                "country": "India",
+                "department": "HR"
+            }
+        ]
+    },
+    "USA": {
+        "IT": [
+            {
+                "id": 3,
+                "name": "John",
+                "country": "USA",
+                "department": "IT"
+            }
+        ]
+    },
+    "Dubai": {
+        "IT": [
+            {
+                "id": 4,
+                "name": "Kiran",
+                "country": "Dubai",
+                "department": "IT"
+            }
+        ]
+    }
+}

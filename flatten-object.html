@@ -1,0 +1,62 @@
+<script>
+    const input = {
+        user: {
+            profile: {
+                name: "Srinivas",
+                age: 28,
+                address: {
+                    city: "Hyderabad",
+                    state: "Telangana",
+                    skills: {
+                        programming: ["JavaScript", "React", "Node.js"]
+                    }
+                }
+            },
+            address: {
+                city: "Hyderabad",
+                state: "Telangana",
+                skills: {
+                    programming: ["JavaScript", "React", "Node.js"]
+                }
+            }
+        }
+    };
+    
+    const result = {};
+
+    function flattenObject(obj, parentKey = "", result = {}) {
+        for (const key in obj) {
+            const newKey = parentKey ? `${parentKey}.${key}` : key;
+            const value = obj[key];
+
+            if (
+                typeof value === "object" &&
+                value !== null &&
+                !Array.isArray(value)
+            ) {
+                flattenObject(value, newKey, result);
+            } else {
+                result[newKey] = value;
+            }
+        }
+
+        return result;
+    }
+
+    console.log(flattenObject(input));
+    console.log(result);
+</script>
+
+expected <output></output>
+
+{
+"user.profile.name": "Srinivas",
+"user.profile.age": 28,
+"user.profile.address.city": "Hyderabad",
+"user.profile.address.state": "Telangana",
+"user.profile.address.skills.programming": ["JavaScript", "React", "Node.js"],
+"user.address.city": "Hyderabad",
+"user.address.state": "Telangana",
+"user.address.skills.programming": ["JavaScript", "React", "Node.js"]
+}
+ 

@@ -15,6 +15,6 @@
         const value = document.getElementById('userName').value;
         console.log(value)
     }
-    const debounceTimeLogs = debounceTime(getData, 500);
+    const debounceTimeLogs = debounceTime(getData, 1000);
     document.getElementById('userName').addEventListener('keyup', debounceTimeLogs);
 </script>

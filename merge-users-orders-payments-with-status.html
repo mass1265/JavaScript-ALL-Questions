@@ -1,0 +1,76 @@
+<script>
+    const users = [
+        { userId: 1, name: "Ravi" }
+    ];
+
+    const orders = [
+        { orderId: 101, userId: 1, status: "completed" },
+        { orderId: 102, userId: 1, status: "cancelled" },
+        { orderId: 103, userId: 1, status: "completed" }
+    ];
+
+    const payments = [
+        { paymentId: 1, userId: 1, amount: 3000, status: "success" },
+        { paymentId: 2, userId: 1, amount: 2000, status: "failed" },
+        { paymentId: 3, userId: 1, amount: 1000, status: "refunded" }
+    ];
+
+
+    // 1. Count completed orders
+    let countOfOrders = {};
+
+    for (const value of orders) {
+
+        if (value.status === "completed") {
+
+            if (!countOfOrders[value.userId]) {
+                countOfOrders[value.userId] = 0;
+            }
+
+            countOfOrders[value.userId]++;
+        }
+    }
+
+
+    // 2. Calculate total paid amount
+    let totalPayments = {};
+
+    for (const value of payments) {
+
+        if (!totalPayments[value.userId]) {
+            totalPayments[value.userId] = 0;
+        }
+
+        if (value.status === "success") {
+            totalPayments[value.userId] += value.amount;
+        }
+
+        if (value.status === "refunded") {
+            totalPayments[value.userId] -= value.amount;
+        }
+    }
+
+
+    // 3. Merge users + orders + payments
+    let finalResult = {}
+
+    for (const value of users) {
+
+        finalResult = {
+            userId: value.userId,
+            name: value.name,
+            totalOrders: countOfOrders[value.userId] || 0,
+            totalPaid: totalPayments[value.userId] || 0
+        };
+
+    }
+
+    console.log(finalResult);
+</script>
+
+{
+    "userId": 1,
+    "name": "Ravi",
+    "totalOrders": 2,
+    "totalPaid": 2000
+}

@@ -1,0 +1,25 @@
+<script>
+    const orders = [
+        { id: 1, customer: "Ravi", amount: 500 },
+        { id: 2, customer: "Suresh", amount: 700 },
+        { id: 3, customer: "Ravi", amount: 300 },
+        { id: 4, customer: "Suresh", amount: 200 }
+    ];
+
+    let res = {};
+
+    for (const value of orders) {
+        if (!res[value.customer]) {
+            res[value.customer] = 0
+        }
+         res[value.customer] += value.amount;
+    }
+    console.log(res)
+</script>
+
+expected <Output></Output>
+
+{
+  Ravi: 800,
+  Suresh: 900
+}

@@ -1,0 +1,41 @@
+<script>
+    const transactions = [
+        { id: 1, date: "2026-01-05", amount: 1000 },
+        { id: 2, date: "2026-01-15", amount: 2000 },
+        { id: 3, date: "2026-02-10", amount: 1500 },
+        { id: 4, date: "2026-02-20", amount: 2500 },
+        { id: 5, date: "2026-01-25", amount: 500 }
+    ];
+
+    const result = {};
+
+    for (const transaction of transactions) {
+
+        const month = transaction.date.slice(0, 7);
+
+        if (!result[month]) {
+            result[month] = {
+                total: 0,
+                count: 0
+            }
+        }
+
+        result[month].total += transaction.amount;
+        result[month].count += 1
+    }
+
+    console.log(result);
+
+</script>
+=========================================================================================================
+
+<script>
+    for (const transaction of transactions) {
+        const month = transaction.date.slice(0, 7);
+        if (!result[month]) {
+            result[month] = 0;
+        }
+        result[month] += transaction.amount;
+    }
+    console.log(result);
+</script>

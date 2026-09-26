@@ -1,0 +1,23 @@
+<script>
+    const input = {
+        "user.profile.name": "Srinivas",
+        "user.profile.age": 28,
+        "user.address.city": "Hyderabad"
+    };
+    let result = {};
+    for (let key in input) {
+        let parts = key.split(".");
+        let current = result;
+        for (let i = 0; i < parts.length; i++) {
+            if (i === parts.length - 1) {
+                current[parts[i]] = input[key];
+            } else {
+                if (!current[parts[i]]) {
+                    current[parts[i]] = {};
+                }
+                current = current[parts[i]];
+            }
+        }
+    }
+    console.log(result);
+</script>

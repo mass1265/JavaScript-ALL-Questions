@@ -1,0 +1,59 @@
+<script>
+    const users = [
+        { id: 1, name: "Srinivas" },
+        { id: 2, name: "Ravi" },
+        { id: 3, name: "Kiran" },
+        { id: 4, name: "Mahesh" }
+    ];
+
+    const orders = [
+        { id: 101, userId: 1, amount: 4000 },
+        { id: 102, userId: 1, amount: 7000 },
+        { id: 103, userId: 2, amount: 3000 },
+        { id: 104, userId: 2, amount: 2000 },
+        { id: 105, userId: 3, amount: 6000 },
+        { id: 106, userId: 3, amount: 5000 },
+        { id: 107, userId: 4, amount: 9000 }
+    ];
+
+
+        let res = {}
+
+        for (const value of orders) {
+            if (res[value.userId]) {
+                res[value.userId] += value.amount
+            } else {
+                res[value.userId] = value.amount
+            }
+        }
+
+    console.log(res)
+
+    const result = [];
+
+    for (const key in res) {
+        if (res[key] > 10000) {
+            const user = users.find(x => x.id === +key);
+            result.push({
+                id: +key,
+                name: user.name,
+                totalOrderAmount: res[key]
+            })
+        }
+    }
+    console.log(result);
+ 
+</script>
+
+[
+    {
+        "id": 1,
+        "name": "Srinivas",
+        "totalOrderAmount": 11000
+    },
+    {
+        "id": 3,
+        "name": "Kiran",
+        "totalOrderAmount": 11000
+    }
+]

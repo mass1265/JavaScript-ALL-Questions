@@ -1,0 +1,34 @@
+<script>
+    const orders = [
+        { userId: 1, amount: 500 },
+        { userId: 2, amount: 1000 },
+        { userId: 1, amount: 700 }
+    ];
+
+    const totals = new Map();
+
+    for (const order of orders) {
+        totals.set(
+            order.userId,
+            (totals.get(order.userId) || 0) + order.amount
+        );
+    }
+
+    let highestUserId = null;
+    let highestTotal = 0;
+
+    for (const [userId, total] of totals) {
+
+        if (total > highestTotal) {
+            highestTotal = total;
+            highestUserId = userId;
+        }
+    }
+
+    console.log({
+        userId: highestUserId,
+        total: highestTotal
+    });
+</script>
+
+{userId: 1, total:1200}

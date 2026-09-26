@@ -1,0 +1,21 @@
+<script>
+    let users1 = [
+        { id: 101, name: "John" },
+        { id: 102, name: "David" }
+    ];
+
+    let users2 = [
+        { id: 101, role: "Admin", salary: 50000 },
+        { id: 102, role: "User", salary: 40000 }
+    ];
+
+    let mergeById = new Map(users2 = users2.map(x => [x.id, x]));
+
+    for (let value of users1) {
+        if (mergeById.has(value.id)) {
+            Object.assign(value, mergeById.get(value.id))
+        }
+    }
+    console.log(users1)
+
+</script>

@@ -1,0 +1,42 @@
+<script>
+    let empList =
+        [
+            { department: 'IT', employee: 'A', salary: 100 },
+            { department: 'IT', employee: 'B', salary: 200 },
+            { department: 'HR', employee: 'C', salary: 150 }
+        ]
+    let res = {}
+
+    for (const emp of empList) {
+        if (!res[emp.department]) {
+            res[emp.department] = {
+                employees: [],
+                totalSalary: 0
+            }
+        }
+        res[emp.department].employees.push(emp.employee)
+        res[emp.department].totalSalary += emp.salary;
+    }
+
+    console.log(res)
+
+</script>
+
+expected ouput 
+===================
+
+{
+    "IT": {
+        "employees": [
+            "A",
+            "B"
+        ],
+        "totalSalary": 300
+    },
+    "HR": {
+        "employees": [
+            "C"
+        ],
+        "totalSalary": 150
+    }
+}

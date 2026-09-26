@@ -1,0 +1,24 @@
+<script>
+    const users = [
+        { id: 101, name: "Ravi" },
+        { id: 102, name: "Kiran" },
+        { id: 103, name: "Suresh" }
+    ];
+
+    let res = {};
+
+    for (const value of users) {
+        if (!res[value.id]) {
+            res[value.id] =  value.name
+        }
+    }
+    console.log(res)
+</script>
+
+expected <Output></Output>
+
+{
+    "101": "Ravi",
+    "102": "Kiran",
+    "103": "Suresh"
+}

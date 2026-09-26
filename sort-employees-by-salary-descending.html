@@ -1,0 +1,27 @@
+<script>
+    let employee = [
+        { name: "A", salary: 50000 },
+        { name: "B", salary: 90000 },
+        { name: "C", salary: 70000 }
+    ];
+
+    let res = []
+    for (let i = 0; i < employee.length; i++) {
+        for (let j = i + 1; j < employee.length; j++) {
+            if (employee[i].salary < employee[j].salary) {
+                let temp = employee[i];
+                employee[i] = employee[j];
+                employee[j] = temp;
+            }
+        }
+    }
+
+    for (const value of employee) {
+        res.push(value.name);
+    }
+    console.log(res.join(','))
+</script>
+
+expected Output
+====================
+B,C,A

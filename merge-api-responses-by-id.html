@@ -1,0 +1,19 @@
+<script>
+    let users = [
+        { id: 1, name: "A" },
+        { id: 2, name: "B" }
+    ];
+
+    let secondResponse = [
+        { id: 2, age: 25 },
+        { id: 1, age: 30 }
+    ];
+  const cityByValue = new Map(secondResponse =  secondResponse.map(x => [x.id, x.age]));
+
+  for (const user of users) {
+     if (cityByValue.has(user.id)) {
+        user.age =  cityByValue.get(user.id);
+     }
+  }
+  console.log(users)
+</script>

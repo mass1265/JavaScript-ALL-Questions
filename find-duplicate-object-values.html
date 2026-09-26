@@ -1,0 +1,42 @@
+<script>
+    const ObjValue = {
+        a: "Apple",
+        b: "Banana",
+        c: "Apple",
+        d: "Orange",
+        e: "Banana"
+    };
+    let res = {}
+    let duplicates = {}
+
+    for (const key in ObjValue) {
+        const value = ObjValue[key];
+
+        if (!res[value]) {
+            res[value] = [];
+        }
+
+        res[value].push(key);
+
+        if (res[value].length === 2) {
+            duplicates[value] = res[value];
+        } else if (res[value].length > 2) {
+            duplicates[value].push(key);
+        }
+    }
+    console.log(duplicates)
+</script>
+
+Expected Output
+===================
+
+{
+"Apple": [
+"a",
+"c"
+],
+"Banana": [
+"b",
+"e"
+]
+}

@@ -1,0 +1,59 @@
+<script>
+    const obj1 = {
+        user: {
+            name: "Srinivas"
+        }
+    };
+
+    const obj2 = {
+        user: {
+            name: "Ravi"
+        }
+    };
+
+    function deepEqual(obj1, obj2) {
+
+        // Same value / same reference
+        if (obj1 === obj2) {
+            return true;
+        }
+
+        // One of them null or not an object
+        if (
+            obj1 === null ||
+            obj2 === null ||
+            typeof obj1 !== "object" ||
+            typeof obj2 !== "object"
+        ) {
+            return false;
+        }
+
+        // Get keys
+        const keys1 = Object.keys(obj1);
+        const keys2 = Object.keys(obj2);
+
+        // Different number of properties
+        if (keys1.length !== keys2.length) {
+            return false;
+        }
+
+        // Compare each property
+        for (let key of keys1) {
+
+            // Key doesn't exist in obj2
+            if (!Object.hasOwn(obj2, key)) {
+                return false;
+            }
+
+            // Recursively compare values
+            if (!deepEqual(obj1[key], obj2[key])) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    console.log(deepEqual(obj1, obj2));
+    // false
+</script>

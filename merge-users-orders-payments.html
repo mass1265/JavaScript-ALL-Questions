@@ -1,0 +1,69 @@
+<script>
+    let users = [
+        { userId: 1, name: "Ravi" },
+        { userId: 2, name: "Kiran" }
+    ];
+
+    let orders = [
+        { orderId: 101, userId: 1 },
+        { orderId: 102, userId: 1 },
+        { orderId: 103, userId: 1 },
+        { orderId: 104, userId: 2 }
+    ];
+
+    let payments = [
+        { paymentId: 1, userId: 1, amount: 3000 },
+        { paymentId: 2, userId: 1, amount: 2000 },
+        { paymentId: 3, userId: 2, amount: 1500 }
+    ];
+
+    let res = {}
+
+    for (const value of payments) {
+        if (res[value.userId]) {
+            res[value.userId] += value.amount
+        } else {
+            res[value.userId] = value.amount
+        }
+    }
+
+
+    let orderCount = {};
+
+    for (const value of orders) {
+        if (orderCount[value.userId]) {
+            orderCount[value.userId]++;
+        } else {
+            orderCount[value.userId] = 1;
+        }
+    }
+
+    console.log(orderCount)
+    console.log(res)
+
+    let Fres = []
+    for (const value of users) {
+        Fres.push({
+            userId: value.userId,
+            name: value.name,
+            totalOrders: orderCount[value.userId],
+            totalPaid: res[value.userId]
+        })
+    }
+    console.log(Fres)
+</script>
+
+[
+    {
+        "id": 1,
+        "name": "Srinivas",
+        "totalOrders": 3,
+        "totalPaid": 5000
+    },
+    {
+        "id": 2,
+        "name": "Anitha",
+        "totalOrders": 1,
+        "totalPaid": 1500
+    }
+]
