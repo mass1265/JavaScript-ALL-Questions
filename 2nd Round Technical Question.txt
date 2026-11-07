@@ -1,0 +1,23 @@
+1) I need reusable Component Table let say example  API Call
+  // https://dummyjson.com/todos  
+  response:-
+==================
+{
+  "todos": [
+    {
+      "id": 1,
+      "todo": "Do something nice for someone you care about",
+      "completed": false,
+      "userId": 152
+    } 
+  ],
+  "total": 254,
+  "skip": 0,
+  "limit": 30
+}
+
+naku table fields Id, Todo, completed, UserId ela disaplay kavali adi kuda reusable dynamical ga and 4 fields ki 4 checkboxes undeli like id, and todo ela edayina checkbox uncheck chesthe table lo field anedi hide avvali 
+
+====================================================================================================
+2) .mpmrc file usage enti?
+3) when ever you run the command npm i then where can downloaded from the libraries 

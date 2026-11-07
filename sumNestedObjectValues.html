@@ -1,0 +1,31 @@
+<script>
+    let Obj = {
+    a: 10,
+    b: {
+        c: {
+            d: 20,
+            e: {
+                f: {
+                    g: 30,
+                    i: {
+                        j: 40
+                    }
+                }
+            }
+        }
+    }
+}
+    function sumNestedObjectValues(obj) {
+        let sum = 0;
+        for (let key in obj) {
+            if (typeof obj[key] === 'object') {
+                sum += sumNestedObjectValues(obj[key]);
+            } else if (typeof obj[key] === 'number') {
+                sum += obj[key];
+            }
+        }
+        return sum;
+    }
+
+    console.log(sumNestedObjectValues(Obj)); // Output: 100
+</script>
